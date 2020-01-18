@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <Home msg="Welcome to Your Vue.js App"/>
+    <Home/>
   </div>
 </template>
 
@@ -9,7 +9,6 @@
 import Home from '@/components/Home.vue'
 
 export default {
-  name: 'home',
   components: {
     Home
   }
