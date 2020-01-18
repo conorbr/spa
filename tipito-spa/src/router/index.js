@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 import Contact from '../views/Contact.vue'
 import Farts from '../views/Farts.vue'
+import SignIn from '../views/auth/SignIn.vue'
 
 
 
@@ -29,6 +30,11 @@ const routes = [
     path: '/farts',
     name: 'farts',
     component: Farts
+  },
+  {
+    path: '/signin',
+    name: 'sign_in',
+    component: SignIn
   },
 ]
 
