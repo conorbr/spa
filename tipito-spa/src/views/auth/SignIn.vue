@@ -1,36 +1,40 @@
 <template>
   <div class="container">
-    <form ref=signIn>
-      <TextInput :field="fields.emailField"/>
-      <TextInput :field="fields.passwordField"/>
-      <Button @click.native="signin" :field="fields.sumbitButton" />
-      <a href="#" @click="signin"></a>
-    </form>
+    <TextInput v-model="credentials.email" :field="fields.emailField" />
+    <TextInput v-model="credentials.password" :field="fields.passwordField"/>
+    <button @click.prevent="signin" type="button" class="btn btn-primary">Sign In</button>
   </div>
 </template>
 
 <script>
 import TextInput from '@/components/form/TextInput.vue'
-import Button from '@/components/form/Button.vue'
+// import Button from '@/components/form/Button.vue'
 
 export default {
   components: {
     TextInput,
-    Button,
+    // Button,
   },
 
   data(){
     return{
+      credentials: {
+        email: '',
+        password: '',
+      },
+
       fields: {
         emailField: {
           type: 'email',
           placeholder: 'your@email.com',
           required: true,
         },
+
         passwordField: {
           type: 'password',
           required: true,
         },
+
         sumbitButton: {
           type: 'submit',
         },
@@ -38,13 +42,10 @@ export default {
     }
   },
 
-  computed: {
-
-  },
-
   methods: {
-    async signin() {
-      this.$store.dispatch("user/signIn", "123").then(() =>
+    signin() {
+      console.log(this.credentials) // eslint-disable-line
+      this.$store.dispatch("user/signIn", this.credentials ).then(() =>
         console.log('hello') // eslint-disable-line
 
       )
