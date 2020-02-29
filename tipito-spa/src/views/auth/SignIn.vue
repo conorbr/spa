@@ -1,9 +1,10 @@
 <template>
   <div class="container">
-    <form>
-      <TextInput :field="fields.email"/>
-      <TextInput :field="fields.password"/>
-      <Button :field="fields.sumbitButton" />
+    <form ref=signIn>
+      <TextInput :field="fields.emailField"/>
+      <TextInput :field="fields.passwordField"/>
+      <Button @click.native="signin" :field="fields.sumbitButton" />
+      <a href="#" @click="signin"></a>
     </form>
   </div>
 </template>
@@ -21,21 +22,34 @@ export default {
   data(){
     return{
       fields: {
-        email: {
+        emailField: {
           type: 'email',
           placeholder: 'your@email.com',
           required: true,
         },
-        password: {
+        passwordField: {
           type: 'password',
           required: true,
         },
         sumbitButton: {
           type: 'submit',
-        }
+        },
       }
     }
-  }
+  },
+
+  computed: {
+
+  },
+
+  methods: {
+    async signin() {
+      this.$store.dispatch("user/signIn", "123").then(() =>
+        console.log('hello') // eslint-disable-line
+
+      )
+    },
+  },
 
 }
 </script>
