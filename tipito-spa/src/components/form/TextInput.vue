@@ -1,6 +1,7 @@
 <template>
   <div class="form-group">
-    <input :type="field.type" :placeholder="field.placeholder" class="form-control">
+    <input :type="field.type" :placeholder="field.placeholder" class="form-control"
+    @input="$emit('input', $event.target.value)">
   </div>
 </template>
 
