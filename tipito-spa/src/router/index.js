@@ -5,6 +5,7 @@ import About from '../views/About.vue'
 import Contact from '../views/Contact.vue'
 import Farts from '../views/Farts.vue'
 import SignIn from '../views/auth/SignIn.vue'
+import SignUp from '../views/auth/SignUp.vue'
 
 
 
@@ -35,6 +36,11 @@ const routes = [
     path: '/signin',
     name: 'sign_in',
     component: SignIn
+  },
+  {
+    path: '/signup',
+    name: 'sign_up',
+    component: SignUp
   },
 ]
 
