@@ -1,18 +1,24 @@
+// import store from './store/store'
+
 let axios = require('axios');
 
-// axios.defaults.withCredentials = true;
-
-
-// let token = () => {
-//   // code to get token from store
-// }
+const API_TEST_URL = "http://localhost:3000";
 
 const ajax = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: API_TEST_URL,
   headers: {
-    Authorization: '',
     'Content-Type': 'application/json',
   },
+});
+
+ajax.interceptors.request.use((config) => {
+  if (localStorage.vuex && JSON.parse(localStorage.vuex)["user"]["auth_token"] !== "") {
+    config.headers = {
+      ...config.headers, 'Authorization': JSON.parse(localStorage.vuex)["user"]["auth_token"]
+    }
+  }
+
+  return config;
 });
 
 export default ajax;
