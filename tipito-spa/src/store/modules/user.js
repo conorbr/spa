@@ -4,14 +4,16 @@ export default {
   namespaced: true,
 
   state: {
-    currentUser: {
-
-    },
+    
   },
 
   mutations: {
     set(state, data) {
-      state.currentUser = data;
+      Object.assign(state, {
+        name: data.name,
+        email: data.email,
+        auth_token: data.auth_token,
+      });
     },
   },
 
@@ -21,8 +23,9 @@ export default {
     },
 
     signIn({ commit }, payload ) {
-      ajax.post('/auth/login' , payload )
-      .then((response) => {commit('set', { name: response.data.name, email: response.data.email , auth_token: response.data.auth_token })})
+      console.log(payload) // eslint-disable-line
+      ajax.post('/auth/login' , {email: payload.email, password: payload.password} )
+      .then((response) => { commit('set', { name: response.data.name, email: response.data.email , auth_token: response.data.auth_token })})
       .catch((error) => { throw error })
     },
 

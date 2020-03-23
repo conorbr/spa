@@ -8,6 +8,7 @@
 
 <script>
 import TextInput from '@/components/form/TextInput.vue'
+import router from '@/router/index'
 // import Button from '@/components/form/Button.vue'
 
 export default {
@@ -44,14 +45,12 @@ export default {
 
   methods: {
     signin() {
-      console.log(this.credentials) // eslint-disable-line
-      this.$store.dispatch("user/signIn", this.credentials ).then(() =>
-        console.log('hello') // eslint-disable-line
-
-      )
+      this.$store.dispatch("user/signIn", this.credentials)
+      .then(this.$store.dispatch("jobs/get"))
+      .then(router.push('home'))
+      .catch((error) => { throw error })
     },
   },
-
 }
 </script>
 
