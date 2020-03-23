@@ -17,7 +17,6 @@ ajax.interceptors.request.use((config) => {
       ...config.headers, 'Authorization': JSON.parse(localStorage.vuex)["user"]["auth_token"]
     }
   }
-
   return config;
 });
 
