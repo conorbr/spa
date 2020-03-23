@@ -10,7 +10,7 @@
 
 <script>
 import TextInput from '@/components/form/TextInput.vue'
-// import Button from '@/components/form/Button.vue'
+import router from '@/router/index'
 
 export default {
   components: {
@@ -59,10 +59,8 @@ export default {
   methods: {
     signUp() {
       console.log(this.credentials) // eslint-disable-line
-      this.$store.dispatch("user/signUp", this.credentials ).then(() =>
-        console.log('hello') // eslint-disable-line
-
-      )
+      this.$store.dispatch("user/signUp", this.credentials )
+      .then(() => { router.push('home') })
     },
   },
 
