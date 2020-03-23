@@ -4,16 +4,14 @@ export default {
   namespaced: true,
 
   state: {
-    
+    jobs: {
+
+    },
   },
 
   mutations: {
     set(state, data) {
-      Object.assign(state, {
-        name: data.name,
-        email: data.email,
-        auth_token: data.auth_token,
-      });
+      state.jobs = data;
     },
   },
 
@@ -22,16 +20,21 @@ export default {
       commit('set', {});
     },
 
-    signIn({ commit }, payload ) {
-      console.log(payload) // eslint-disable-line
-      ajax.post('/auth/login' , {email: payload.email, password: payload.password} )
-      .then((response) => { commit('set', { name: response.data.name, email: response.data.email , auth_token: response.data.auth_token })})
+    get({ commit }) {
+      ajax.get('/jobs')
+      .then((response) => { commit('set', response.data )})
       .catch((error) => { throw error })
     },
 
     // todo
-    signUp({ commit }, payload) {
+    create({ commit }, payload) {
       ajax.post('/signup', payload)
+      .then((response) => {commit('set', { name: response.data.name, email: response.data.email , auth_token: response.data.auth_token })})
+      .catch((error) => { throw error })
+    },
+
+    update({ commit }, payload) {
+      ajax.put('/signup', payload)
       .then((response) => {commit('set', { name: response.data.name, email: response.data.email , auth_token: response.data.auth_token })})
       .catch((error) => { throw error })
     },
