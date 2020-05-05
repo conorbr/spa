@@ -1,9 +1,18 @@
 <template>
   <div>
-    <router-link v-for="routes in links"
-      v-bind:key="routes.id"
-      :to="`${routes.page}`">{{routes.text}}
-    </router-link>
+    <v-toolbar flat app>
+      <v-toolbar-title class="blue--text">
+        <span>Tipi</span>
+        <span class="font-weight-light">to</span>
+      </v-toolbar-title>
+
+      <v-spacer></v-spacer>
+
+      <router-link v-for="routes in links"
+        v-bind:key="routes.id"
+        :to="`${routes.page}`" class="pl-2">{{routes.text}}
+      </router-link>
+    </v-toolbar>
   </div>
 </template>
 
