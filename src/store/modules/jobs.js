@@ -28,7 +28,8 @@ export default {
 
     // todo
     create({ commit }, payload) {
-      ajax.post('/signup', payload)
+      debugger // eslint-disable-line
+      ajax.post('/jobs', payload)
       .then((response) => {commit('set', { name: response.data.name, email: response.data.email , auth_token: response.data.auth_token })})
       .catch((error) => { throw error })
     },
