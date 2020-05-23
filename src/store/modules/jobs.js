@@ -4,14 +4,14 @@ export default {
   namespaced: true,
 
   state: {
-    jobs: {
 
-    },
   },
 
   mutations: {
     set(state, data) {
-      state.jobs = data;
+      Object.assign(state, {
+        data
+      });
     },
   },
 
@@ -27,10 +27,9 @@ export default {
     },
 
     // todo
-    create({ commit }, payload) {
-      debugger // eslint-disable-line
+    create({ dispatch }, payload) {
       ajax.post('/jobs', payload)
-      .then((response) => {commit('set', { name: response.data.name, email: response.data.email , auth_token: response.data.auth_token })})
+      .then(() => { dispatch("get") })
       .catch((error) => { throw error })
     },
 
