@@ -10,6 +10,7 @@ import jobsModule from './modules/jobs';
 Vue.use(Vuex)
 
 export default new Vuex.Store({
+  plugins: [createPersistedState()],
 
   state: {
     auth_token: ''
@@ -19,6 +20,4 @@ export default new Vuex.Store({
     user: userModule,
     jobs: jobsModule,
   },
-
-  plugins: [createPersistedState()]
 })

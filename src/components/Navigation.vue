@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-toolbar flat app>
+    <v-app-bar flat app>
       <v-toolbar-title class="blue--text">
         <span>Tipi</span>
         <span class="font-weight-light">to</span>
@@ -12,7 +12,7 @@
         v-bind:key="routes.id"
         :to="`${routes.page}`" class="pl-2">{{routes.text}}
       </router-link>
-    </v-toolbar>
+    </v-app-bar>
   </div>
 </template>
 
