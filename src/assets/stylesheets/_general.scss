@@ -1,0 +1,182 @@
+#app {
+  // color variables
+  $tipito-blue: #0abde3;
+
+  .debug {
+    border: 1px solid red;
+  }
+
+  .debugB {
+    border: 1px solid blue;
+  }
+
+  .debugP {
+    border: 1px solid deeppink;
+  }
+
+  .debugY {
+    border: 1px solid yellow;
+  }
+
+  .main-content {
+    min-height: calc(100vh - 100px - 95px);
+    background-color: #ffffff;
+
+    .label-input {
+      font-weight: 600;
+    }
+  }
+
+  .d-grid {
+    display: grid;
+  }
+
+  .no-gutters > .col,
+  .no-gutter>[class^="col-"]{
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .tipito-blue {
+    color: $tipito-blue !important;
+  }
+
+  .alert-error {
+    font-size: 12px;
+    color: red;
+  }
+
+  .alert-egx {
+    color: $tipito-blue;
+    background-color: rgba(103, 56, 154, 0.4);
+  }
+
+  .borderless-text-input {
+    width: 100%;
+    border: none;
+    border-bottom-color: transparent;
+    outline: none;
+  }
+
+  .content-box {
+    border-radius: 5px;
+    background-color: #ffffff;
+    box-shadow: -5px 10px 20px 3px rgba(0, 0, 0, 0.06);
+    padding: 1em;
+    overflow: hidden;
+    margin: 0 auto 25px;
+
+    h5 {
+      font-size: 18px;
+    }
+
+    h1 {
+      font-size: 36px;
+      color: #152935;
+    }
+
+    p {
+      color: #4F4F4F;
+    }
+
+    &.closed {
+      *:not(:first-child) {
+        display: none;
+      }
+    }
+  }
+
+  .input-tipito {
+    border-radius: 2px;
+  }
+
+  .btn {
+    cursor: pointer;
+
+    &.btn-xlg {
+      width: 184px;
+      height: 65px;
+      border-radius: 5px;
+      font-size: 20px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &.btn-tipito {
+      color: #ffffff;
+      background-color: $tipito-blue;
+      border-color: $tipito-blue;
+    }
+
+    &.btn-tipito-grey {
+      color: #ffffff;
+      background-color: #bbbbbb;
+      border-color: #6c757d;
+    }
+
+    &.btn-tipito-white {
+      border-radius: 2px;
+      color: $tipito-blue;
+      background-color: #ffffff;
+      border-color: $tipito-blue;
+    }
+  }
+
+  .text-black {
+    color: #000000;
+  }
+
+  button.option-normal {
+    width: 250px;
+    height: 65px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px #f0f0f0;
+    background-color: #ffffff;
+
+    &:focus { outline:0; }
+
+    .txt {
+      height: 29px;
+      width: 185px;
+      font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+      font-size: 1.5rem !important;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: center;
+    }
+  }
+
+  button.option>.txt {
+    color: #9b9b9b;
+  }
+
+  button.selected-option {
+    border: solid 1px #6F30A2;
+
+    .txt {
+      color: #6F30A0;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .button-options > .row {
+      margin-right: 10rem !important;
+      margin-left: 10rem !important;
+    }
+  }
+
+  .vue-notification {
+    color: #ffffff;
+    background-color: #67389a;
+    border-color: #67389a;
+    border-radius: 2px;
+    box-shadow: -4px 4px 15px 0 rgba(165, 165, 165, 0.5);
+    text-align: center;
+  }
+}
